@@ -30,6 +30,8 @@ module Spring
             Gem.use_paths Gem.dir, Bundler.bundle_path.to_s, *Gem.path
             gem "spring", spring.version
             require "spring/binstub"
+          rescue Gem::LoadError
+            # Ignore when Spring is not installed.
           end
         end
       CODE
